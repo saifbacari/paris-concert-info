@@ -7,9 +7,16 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "import-lastfm": "node import-lastfm.js"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.84.0",
+    "axios": "^1.13.2",
+    "cheerio": "^1.1.2",
+    "dotenv": "^17.2.3",
+    "papaparse": "^5.5.3",
+    "puppeteer": "^24.31.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

@@ -1,0 +1,179 @@
+.concert-table-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.table-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.table-header h2 {
+    font-size: 2.5rem;
+    background: linear-gradient(to right, var(--text-primary), var(--text-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+.table-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.table-wrapper {
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1px;
+    /* For border gradient if needed later */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: var(--text-primary);
+}
+
+thead {
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    padding: 1.5rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+}
+
+td {
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: background-color 0.2s;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover td {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.artist-cell {
+    font-weight: 700;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+}
+
+.genre-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    background: rgba(124, 58, 237, 0.15);
+    color: #a78bfa;
+    border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.comment-cell {
+    color: var(--text-secondary);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.comment-link {
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-style: normal;
+    transition: color 0.2s;
+    word-break: break-all;
+}
+
+.comment-link:hover {
+    color: var(--accent-secondary);
+    text-decoration: underline;
+}
+
+.actions-cell {
+    text-align: center;
+    width: 120px;
+}
+
+.actions-cell button {
+    margin: 0 0.25rem;
+}
+
+.edit-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.edit-btn:hover {
+    background: rgba(124, 58, 237, 0.15);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: scale(1.1);
+}
+
+.edit-btn svg {
+    display: block;
+}
+
+.delete-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 0.5rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.delete-btn:hover {
+    background: rgba(239, 68, 68, 0.15);
+    border-color: #ef4444;
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
+.delete-btn svg {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .concert-table-container {
+        padding: 1rem;
+    }
+
+    th,
+    td {
+        padding: 1rem 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .table-wrapper {
+        overflow-x: auto;
+    }
+}

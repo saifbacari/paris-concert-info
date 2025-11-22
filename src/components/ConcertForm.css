@@ -1,0 +1,251 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    width: 90%;
+    max-width: 600px;
+    margin: 0;
+    position: relative;
+    animation: slideUp 0.3s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: var(--text-primary);
+}
+
+/* Stepper Styles */
+.stepper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.step {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.step.active {
+    color: var(--accent-primary);
+    font-weight: 700;
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.step-line {
+    flex: 1;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 1rem;
+}
+
+.step.active+.step-line,
+.step-line:has(+ .step.active) {
+    /* Note: :has support is good but fallback might be needed for older browsers, keeping simple for now */
+    background: linear-gradient(to right, var(--accent-primary), rgba(255, 255, 255, 0.1));
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-left: 0.25rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    color: var(--text-primary);
+    font-family: var(--font-main);
+    /* Explicitly set font */
+    font-size: 1.1rem;
+    /* Larger font */
+    line-height: 1.5;
+    transition: all 0.2s ease;
+    box-sizing: border-box;
+    /* Ensure padding doesn't affect width */
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Fix date/time input appearance */
+.form-group input[type="date"],
+.form-group input[type="time"] {
+    color-scheme: dark;
+    position: relative;
+}
+
+/* Customize calendar icon color */
+.form-group input[type="date"]::-webkit-calendar-picker-indicator,
+.form-group input[type="time"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(0.8) sepia(1) saturate(5) hue-rotate(240deg);
+    cursor: pointer;
+}
+
+.form-group input[type="date"]::-webkit-calendar-picker-indicator:hover,
+.form-group input[type="time"]::-webkit-calendar-picker-indicator:hover {
+    filter: invert(1) brightness(1) sepia(1) saturate(5) hue-rotate(240deg);
+}
+
+/* Firefox date/time input styling */
+.form-group input[type="date"]::-moz-calendar-picker-indicator,
+.form-group input[type="time"]::-moz-calendar-picker-indicator {
+    filter: invert(1) brightness(0.8) sepia(1) saturate(5) hue-rotate(240deg);
+    cursor: pointer;
+}
+
+/* Ensure form has enough space for calendar popup */
+.concert-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-height: 300px;
+    /* Reserve space for calendar */
+}
+
+.form-step {
+    min-height: 250px;
+    /* Ensure consistent height for all steps */
+}
+
+/* Add padding to modal content to prevent overflow */
+.concert-form-container {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+    overflow: visible;
+    /* Allow calendar to show outside */
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.nav-btn {
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.2s;
+    cursor: pointer;
+}
+
+.nav-btn.prev {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.nav-btn.prev:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.nav-btn.next {
+    background: var(--accent-primary);
+    color: white;
+    margin-left: auto;
+}
+
+.nav-btn.next:hover {
+    background: #6d28d9;
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-left: auto;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.submit-btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.95;
+}
+
+.submit-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.3s ease;
+}
